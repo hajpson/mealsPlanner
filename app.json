@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+     "extra": {
+      "eas": {
+        "projectId": "2ec3dc4d-2763-481f-96dc-7c91aab59db1"
+      }
+    },
+    "owner": "hajpson"
   }
 }
