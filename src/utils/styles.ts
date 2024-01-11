@@ -2,14 +2,19 @@ import { StyleSheet } from "react-native";
 import { colors } from "./constants";
 
 export const styles = StyleSheet.create({
+  mainWrapper: {
+    flex: 1,
+    backgroundColor: colors.primary
+  },
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "space-between",
   },
   listPageContainer: {
-    backgroundColor: colors.light,
+    backgroundColor: colors.plainWhite,
+    marginBottom: 10,
+    borderRadius: 20
   },
   navItemContainer: {
     marginHorizontal: 20,
@@ -19,13 +24,11 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    backgroundColor: colors.dark,
-    borderTopEndRadius: 12,
-    borderTopStartRadius: 12,
+    backgroundColor: colors.primary,
     paddingVertical: 12,
   },
   navbarWrapper: {
-    backgroundColor: colors.light,
+    backgroundColor: colors.plainWhite,
   },
   customText: {
     fontFamily: "LexendSemiBold",
@@ -36,22 +39,23 @@ export const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "flex-start",
     alignItems: "stretch",
+    backgroundColor: colors.plainWhite,
+    borderRadius: 24
   },
   listItemContainer: {
-    borderWidth: 2,
-    borderColor: colors.medium,
-    padding: 12,
+    backgroundColor: colors.grayContrast,
+    padding: 24,
     marginHorizontal: 12,
-    borderRadius: 12,
+    borderRadius: 24,
   },
   separator: {
-    height: 12,
+    height: 24,
   },
   customInputWrapper: {
     width: "100%",
     borderBottomWidth: 2,
     borderBottomColor: colors.dark,
-    backgroundColor: colors.medium,
+    backgroundColor: colors.plainWhite
   },
   customInput: {
     color: colors.plainWhite,

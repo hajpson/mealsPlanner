@@ -5,10 +5,13 @@ export const NAVIGATION_SCREEN_ID = {
 };
 
 export const colors = {
-  light: "#F6F2F0",
-  lightContrast: "#F3E7E4",
-  secondLightContrast: "#F1E7DD",
-  medium: "#E7D1C9",
-  dark: "#D0B49F",
+  light: "#af97ffc2",
+  primary: "#5017e1",
+  dark: "#22009bff",
+  grayContrast: "#00000012",
   plainWhite: "#ffffff",
 };
+
+export const flags = {
+  isUsingLoginScreen: false
+}

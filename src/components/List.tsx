@@ -33,19 +33,11 @@ const Separator = () => <View style={styles.separator}></View>;
 
 const ItemsList = () => {
   const setMarginTopIfFirstIndex = (index: number) => {
-    if (index === 0) {
-      return 6;
-    }
-
-    return 0;
+    return index === 0 ? 24 : 0;
   };
 
   const setMarginBottomIfLastIndex = (index: number, itemsCount: number) => {
-    if (itemsCount - 1 === index) {
-      return 6;
-    }
-
-    return 0;
+    return itemsCount - 1 === index ? 24 : 0;
   };
 
   return (

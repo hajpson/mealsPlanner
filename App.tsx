@@ -3,13 +3,15 @@ import { MealsScreen } from "./src/screens/MealsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Navbar from "./src/components/Navbar";
 import * as SplashScreen from "expo-splash-screen";
-import { NAVIGATION_SCREEN_ID } from "./src/utils/constants";
+import { NAVIGATION_SCREEN_ID, colors, flags } from "./src/utils/constants";
 import { ProductsScreen } from "./src/screens/ProductsScreen";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import { SettingsScreen } from "./src/screens/SettingsScreen";
+import { LoginScreen } from "./src/screens/LoginScreen";
 
 const Tab = createBottomTabNavigator();
+const isInLoginMode = flags.isUsingLoginScreen;
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,6 +31,11 @@ export default function App() {
     return null;
   }
 
+  if (isInLoginMode) {
+    onContainerReady();
+    return <LoginScreen />;
+  }
+
   return (
     <NavigationContainer onReady={onContainerReady}>
       <Tab.Navigator
@@ -38,15 +45,14 @@ export default function App() {
         <Tab.Screen
           name={NAVIGATION_SCREEN_ID.MEALS}
           component={MealsScreen}
-          options={{ headerShown: false, tabBarLabel: "Meals" }}
+          options={{ headerShown: false, tabBarLabel: "Meals", tabBarInactiveTintColor: colors.primary }}
         />
         <Tab.Screen
           name={NAVIGATION_SCREEN_ID.PRODUCTS}
           component={ProductsScreen}
           options={{
             headerShown: false,
-            tabBarLabel: "Products",
-            tabBarActiveBackgroundColor: "black",
+            tabBarLabel: "Products"
           }}
         />
         <Tab.Screen
@@ -56,5 +62,5 @@ export default function App() {
         />
       </Tab.Navigator>
     </NavigationContainer>
-  );
+  )
 }

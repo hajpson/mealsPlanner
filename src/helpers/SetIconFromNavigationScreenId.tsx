@@ -4,7 +4,6 @@ import {
   MaterialIcons,
   Entypo,
 } from "@expo/vector-icons";
-import { styles } from "../utils/styles";
 import { View } from "react-native";
 
 export const SetIconFromNavigationScreenId = ({
@@ -15,7 +14,7 @@ export const SetIconFromNavigationScreenId = ({
   isFocused: boolean;
 }) => {
   const iconSize = isFocused ? 26 : 20;
-  const iconColor = isFocused ? colors.light : colors.medium;
+  const iconColor = isFocused ? colors.plainWhite : colors.light;
 
   const mealsIcon = (
     <View>

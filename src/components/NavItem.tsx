@@ -5,7 +5,7 @@ import { CustomText } from "./CustomText";
 import { colors } from "../utils/constants";
 
 export default function NavItem({ title, icon, isFocused }: NavItemProps) {
-  const textColor = isFocused ? colors.light : colors.medium;
+  const textColor = isFocused ? colors.plainWhite : colors.light;
 
   return (
     <View style={styles.navItemContainer}>
