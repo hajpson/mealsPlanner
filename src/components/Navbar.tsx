@@ -1,4 +1,4 @@
-import { styles } from "../utils/styles";
+import { uniStyles } from "../utils/styles";
 import NavItem from "./NavItem";
 import { TouchableOpacity, View } from "react-native";
 import { NavbarProps } from "../types/NavbarProps";
@@ -10,16 +10,16 @@ export default function Navbar({
   navigation,
 }: NavbarProps) {
   return (
-    <View style={styles.navbarWrapper}>
-      <View style={styles.floatingNavbarContainer}>
+    <View style={uniStyles.navbarWrapper}>
+      <View style={uniStyles.floatingNavbarContainer}>
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];
           const label =
             options.tabBarLabel !== undefined
               ? options.tabBarLabel
               : options.title !== undefined
-              ? options.title
-              : route.name;
+                ? options.title
+                : route.name;
 
           const isFocused = state.index === index;
 

@@ -1,19 +1,25 @@
 import { TextInput, View } from "react-native";
-import { styles } from "../utils/styles";
+import { uniStyles } from "../utils/styles";
 import { colors } from "../utils/constants";
 import { useState } from "react";
+import { CustomInputProps } from "../types/CustomInputProps";
 
-export const CustomInput = () => {
-  const [value, setValue] = useState("");
-
+export const CustomInput = ({
+  wrapperStyle,
+  inputStyle,
+  placeholderText,
+  placeholderColorText,
+  onChangeText,
+  value
+}: CustomInputProps) => {
   return (
-    <View style={styles.customInputWrapper}>
+    <View style={[uniStyles.customInputWrapper, wrapperStyle]}>
       <TextInput
-        style={[styles.customInput]}
-        placeholder="Search"
+        style={[uniStyles.customInput, inputStyle]}
+        placeholder={placeholderText}
         value={value}
-        onChangeText={(textValue) => setValue(textValue)}
-        placeholderTextColor={colors.dark}
+        onChangeText={onChangeText}
+        placeholderTextColor={placeholderColorText ?? colors.light}
       />
     </View>
   );

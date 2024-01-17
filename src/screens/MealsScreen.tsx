@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import ItemsList from "../components/List";
-import { styles } from "../utils/styles";
+import { uniStyles } from "../utils/styles";
 import * as SplashScreen from "expo-splash-screen";
 import { CustomInput } from "../components/CustomInput";
 import { CustomSafeAreaView } from "../components/CustomSafeAreaView";
@@ -12,11 +12,11 @@ export const MealsScreen = () => {
     <CustomSafeAreaView>
       <View
         style={[
-          styles.container,
-          styles.listPageContainer
+          uniStyles.container,
+          uniStyles.mainPageContainer
         ]}
       >
-        <CustomInput />
+        <CustomInput placeholderText="Look for wanted meal" />
         <ItemsList />
       </View>
     </CustomSafeAreaView>

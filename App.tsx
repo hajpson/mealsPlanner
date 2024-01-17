@@ -45,7 +45,7 @@ export default function App() {
         <Tab.Screen
           name={NAVIGATION_SCREEN_ID.MEALS}
           component={MealsScreen}
-          options={{ headerShown: false, tabBarLabel: "Meals", tabBarInactiveTintColor: colors.primary }}
+          options={{ headerShown: false, tabBarLabel: "Meals" }}
         />
         <Tab.Screen
           name={NAVIGATION_SCREEN_ID.PRODUCTS}

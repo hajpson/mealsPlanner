@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { styles } from "../utils/styles";
+import { uniStyles } from "../utils/styles";
 import { CustomInput } from "../components/CustomInput";
 import ItemsList from "../components/List";
 import { CustomSafeAreaView } from "../components/CustomSafeAreaView";
@@ -9,11 +9,11 @@ export const ProductsScreen = () => {
     <CustomSafeAreaView>
       <View
         style={[
-          styles.container,
-          styles.listPageContainer
+          uniStyles.container,
+          uniStyles.mainPageContainer
         ]}
       >
-        <CustomInput />
+        <CustomInput placeholderText="Look for wanted product" />
         <ItemsList />
       </View>
     </CustomSafeAreaView>

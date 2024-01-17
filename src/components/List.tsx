@@ -1,7 +1,7 @@
 import { FlatList, View, Text } from "react-native";
 import { ListItemProps } from "../types/ListItemProps";
 import { CustomText } from "./CustomText";
-import { styles } from "../utils/styles";
+import { uniStyles } from "../utils/styles";
 
 const items = [
   { id: "1", title: "asda" },
@@ -24,12 +24,12 @@ const items = [
 ];
 
 const ListItem = ({ title, style }: ListItemProps) => (
-  <View style={[styles.listItemContainer, style]}>
+  <View style={[uniStyles.listItemContainer, style]}>
     <CustomText>{title}</CustomText>
   </View>
 );
 
-const Separator = () => <View style={styles.separator}></View>;
+const Separator = () => <View style={uniStyles.separator}></View>;
 
 const ItemsList = () => {
   const setMarginTopIfFirstIndex = (index: number) => {
@@ -41,7 +41,7 @@ const ItemsList = () => {
   };
 
   return (
-    <View style={styles.listContainer}>
+    <View style={uniStyles.listContainer}>
       <FlatList
         ItemSeparatorComponent={Separator}
         renderItem={({ item, index }) => (
