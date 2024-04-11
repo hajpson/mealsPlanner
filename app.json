@@ -22,12 +22,13 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "softwareKeyboardLayoutMode": "pan"
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "com.hajpsoft.mealsPlanner"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-     "extra": {
+    "extra": {
       "eas": {
         "projectId": "2ec3dc4d-2763-481f-96dc-7c91aab59db1"
       }

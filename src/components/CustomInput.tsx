@@ -1,7 +1,6 @@
 import { TextInput, View } from "react-native";
 import { uniStyles } from "../utils/styles";
-import { colors } from "../utils/constants";
-import { useState } from "react";
+import { COLORS } from "../utils/constants";
 import { CustomInputProps } from "../types/CustomInputProps";
 
 export const CustomInput = ({
@@ -19,7 +18,7 @@ export const CustomInput = ({
         placeholder={placeholderText}
         value={value}
         onChangeText={onChangeText}
-        placeholderTextColor={placeholderColorText ?? colors.light}
+        placeholderTextColor={placeholderColorText ?? COLORS.LIGHT}
       />
     </View>
   );

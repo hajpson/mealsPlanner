@@ -1,6 +1,7 @@
-import { FlatList, View, Text } from "react-native";
-import { ListItemProps } from "../types/ListItemProps";
+import { FlatList, View } from "react-native";
+
 import { CustomText } from "./CustomText";
+import { ListItemProps } from "../types/ListItemProps";
 import { uniStyles } from "../utils/styles";
 
 const items = [
@@ -29,7 +30,7 @@ const ListItem = ({ title, style }: ListItemProps) => (
   </View>
 );
 
-const Separator = () => <View style={uniStyles.separator}></View>;
+const Separator = () => <View style={uniStyles.separator} />;
 
 const ItemsList = () => {
   const setMarginTopIfFirstIndex = (index: number) => {
