@@ -1,7 +1,8 @@
 import { TextInput, View } from "react-native";
-import { uniStyles } from "../utils/styles";
+
+import { CustomInputProps } from "../types/props/CustomInputProps";
 import { COLORS } from "../utils/constants";
-import { CustomInputProps } from "../types/CustomInputProps";
+import { uniStyles } from "../utils/styles";
 
 export const CustomInput = ({
   wrapperStyle,
@@ -9,11 +10,14 @@ export const CustomInput = ({
   placeholderText,
   placeholderColorText,
   onChangeText,
-  value
+  value,
+  secured = false,
 }: CustomInputProps) => {
   return (
     <View style={[uniStyles.customInputWrapper, wrapperStyle]}>
       <TextInput
+        secureTextEntry={secured}
+        autoCorrect={false}
         style={[uniStyles.customInput, inputStyle]}
         placeholder={placeholderText}
         value={value}

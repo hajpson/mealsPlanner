@@ -1,3 +1,4 @@
 export type CustomProgressChartProps = {
-  progressValue: number;
+  currentValue: number;
+  maxValue: number;
 };

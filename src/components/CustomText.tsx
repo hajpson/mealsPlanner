@@ -1,5 +1,6 @@
 import { Text } from "react-native";
-import { CustomTextProps } from "../types/CustomTextProps";
+
+import { CustomTextProps } from "../types/props/CustomTextProps";
 import { uniStyles } from "../utils/styles";
 
 export const CustomText = ({ children, style }: CustomTextProps) => {

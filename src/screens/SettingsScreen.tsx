@@ -1,4 +1,5 @@
 import { View } from "react-native";
+
 import { CustomText } from "../components/CustomText";
 import { uniStyles } from "../utils/styles";
 

@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import { uniStyles } from "../utils/styles";
-import { NavItemProps } from "../types/NavItemProps";
+import { NavItemProps } from "../types/props/NavItemProps";
 import { CustomText } from "./CustomText";
 import { COLORS } from "../utils/constants";
 

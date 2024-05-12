@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { LayoutProps } from "../types/LayoutProps";
+import { LayoutProps } from "../types/props/LayoutProps";
 import { uniStyles } from "../utils/styles";
 
 export const Layout: FC<PropsWithChildren<LayoutProps>> = ({

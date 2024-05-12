@@ -1,7 +1,7 @@
 import { FlatList, View } from "react-native";
 
 import { CustomText } from "./CustomText";
-import { ListItemProps } from "../types/ListItemProps";
+import { ListItemProps } from "../types/props/ListItemProps";
 import { uniStyles } from "../utils/styles";
 
 const items = [

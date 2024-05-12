@@ -74,6 +74,7 @@ export const uniStyles = StyleSheet.create({
 export const loginScreenStyles = StyleSheet.create({
   wavesBackground: {
     position: "absolute",
+    backgroundColor: "white",
   },
   titleContainer: {
     marginBottom: 12,

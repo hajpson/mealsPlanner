@@ -1,7 +1,7 @@
 import { uniStyles } from "../utils/styles";
 import NavItem from "./NavItem";
 import { TouchableOpacity, View } from "react-native";
-import { NavbarProps } from "../types/NavbarProps";
+import { NavbarProps } from "../types/props/NavbarProps";
 import { SetIconFromNavigationScreenId } from "../helpers/SetIconFromNavigationScreenId";
 
 export default function Navbar({

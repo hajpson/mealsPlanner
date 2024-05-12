@@ -1,5 +1,5 @@
 import { ViewStyle } from "react-native";
-import { CustomButtonProps } from "../types/CustomButtonProps";
+import { CustomButtonProps } from "../types/props/CustomButtonProps";
 import { uniStyles } from "../utils/styles";
 import { MotiPressable } from "moti/interactions";
 import { useMemo } from "react";

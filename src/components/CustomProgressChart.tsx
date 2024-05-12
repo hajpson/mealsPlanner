@@ -1,25 +1,52 @@
+import { StyleSheet, View } from "react-native";
 import * as Progress from "react-native-progress";
 
-import { CustomProgressChartProps } from "../types/CustomProgressChartProps";
+import { CustomText } from "./CustomText";
+import { CustomProgressChartProps } from "../types/props/CustomProgressChartProps";
 import { COLORS } from "../utils/constants";
 
+const customProgressChartStyle = StyleSheet.create({
+  centerTextWrapper: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  secondaryText: {
+    fontFamily: "Lexend",
+  },
+});
+
 export const CustomProgressChart = ({
-  progressValue,
+  currentValue,
+  maxValue,
 }: CustomProgressChartProps) => {
-  const progressCalculated = progressValue / 2000;
+  const progressValue = currentValue / maxValue;
+  const percentValue = Math.round(progressValue * 100);
+  const isOverLimit = progressValue > 1;
 
   return (
-    <Progress.Circle
-      borderWidth={3}
-      size={100}
-      color={COLORS.DARK}
-      progress={progressCalculated}
-      unfilledColor={COLORS.LIGHT}
-      borderColor={COLORS.PRIMARY}
-      thickness={8}
-      showsText
-      strokeCap="round"
-      textStyle={{ fontFamily: "Lexend" }}
-    />
+    <View>
+      <Progress.Circle
+        borderWidth={3}
+        size={100}
+        color={isOverLimit ? COLORS.ERROR : COLORS.PRIMARY}
+        progress={isOverLimit ? progressValue - 1 : progressValue}
+        unfilledColor={isOverLimit ? COLORS.PRIMARY : COLORS.LIGHT}
+        borderColor={COLORS.DARK}
+        thickness={8}
+        strokeCap="round"
+        textStyle={{ fontFamily: "Lexend" }}
+      />
+
+      <View style={customProgressChartStyle.centerTextWrapper}>
+        <CustomText style={customProgressChartStyle.secondaryText}>
+          {percentValue}%
+        </CustomText>
+      </View>
+    </View>
   );
 };
