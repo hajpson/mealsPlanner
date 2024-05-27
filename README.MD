@@ -1,4 +1,4 @@
-#Fonts
+# Fonts
 
 Fonts used in this project comes from Lexend font family. These are all available options:
 
