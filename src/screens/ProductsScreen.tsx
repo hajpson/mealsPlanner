@@ -1,11 +1,27 @@
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 
 import ItemsList from "../components/List";
-import { uniStyles } from "../utils/styles";
+import { COLORS } from "../utils/constants";
+
+const productsScreenStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  mainPageContainer: {
+    backgroundColor: COLORS.PLAIN_WHITE,
+  },
+});
 
 export const ProductsScreen = () => {
   return (
-    <View style={[uniStyles.container, uniStyles.mainPageContainer]}>
+    <View
+      style={[
+        productsScreenStyles.container,
+        productsScreenStyles.mainPageContainer,
+      ]}
+    >
       {/* <CustomInput placeholderText="Look for wanted product" /> */}
       <ItemsList />
     </View>

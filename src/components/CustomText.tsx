@@ -1,8 +1,15 @@
-import { Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
 import { CustomTextProps } from "../types/props/CustomTextProps";
-import { uniStyles } from "../utils/styles";
+import { COLORS } from "../utils/constants";
+
+const customTextStyles = StyleSheet.create({
+  customText: {
+    fontFamily: "LexendSemiBold",
+    color: COLORS.DARK,
+  },
+});
 
 export const CustomText = ({ children, style }: CustomTextProps) => {
-  return <Text style={[uniStyles.customText, style]}>{children}</Text>;
+  return <Text style={[customTextStyles.customText, style]}>{children}</Text>;
 };

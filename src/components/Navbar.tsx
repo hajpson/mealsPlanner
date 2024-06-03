@@ -1,8 +1,21 @@
-import { uniStyles } from "../utils/styles";
 import NavItem from "./NavItem";
-import { TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { NavbarProps } from "../types/props/NavbarProps";
 import { SetIconFromNavigationScreenId } from "../helpers/SetIconFromNavigationScreenId";
+import { COLORS } from "../utils/constants";
+
+const navbarStyles = StyleSheet.create({
+  floatingNavbarContainer: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    backgroundColor: COLORS.PRIMARY,
+    paddingBottom: 24,
+    paddingTop: 12,
+  },
+  navbarWrapper: {
+    backgroundColor: COLORS.PLAIN_WHITE,
+  },
+});
 
 export default function Navbar({
   state,
@@ -10,8 +23,8 @@ export default function Navbar({
   navigation,
 }: NavbarProps) {
   return (
-    <View style={uniStyles.navbarWrapper}>
-      <View style={uniStyles.floatingNavbarContainer}>
+    <View style={navbarStyles.navbarWrapper}>
+      <View style={navbarStyles.floatingNavbarContainer}>
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];
           const label =

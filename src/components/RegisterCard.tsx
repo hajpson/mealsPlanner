@@ -1,57 +1,131 @@
 import { BlurView } from "expo-blur";
-import React, { useState } from "react";
-import { View } from "react-native";
-import { loginScreenStyles } from "../utils/styles";
+import React, { useCallback, useState } from "react";
+import { Dimensions, StyleSheet, View } from "react-native";
 import { CustomInput } from "./CustomInput";
 import { CustomText } from "./CustomText";
 import { MotiView } from "moti";
+import { COLORS } from "../utils/constants";
+import { RegisterCardProps } from "../types/props/RegisterCardProps";
+import { CustomButton } from "./CustomButton";
+import { isEmailValid } from "../helpers/isEmailValid";
 
-export const RegisterCard = () => {
-    const [emailAddressValue, setEmailAddressValue] = useState("");
-    const [passwordValue, setPasswordValue] = useState("");
-    const [repeatPasswordValue, setRepeatPasswordValue] = useState("");
+const registerCardStyles = StyleSheet.create({
+  blurViewWrapper: {
+    borderRadius: 24,
+    overflow: "hidden",
+    width: Dimensions.get("screen").width - 48,
+  },
+  blurViewContainer: {
+    padding: 18,
+    display: "flex",
+    alignItems: "center",
+  },
+  subheaderText: {
+    fontSize: 20,
+  },
+  inputWrapper: {
+    backgroundColor: "transparent",
+    borderRadius: 24,
+    borderWidth: 2,
+    borderColor: COLORS.DARK,
+    marginTop: 20,
+  },
+  input: {
+    color: COLORS.DARK,
+  },
+  continueButton: {
+    backgroundColor: COLORS.LIGHT,
+    width: "100%",
+    marginTop: 12,
+    alignItems: "center",
+  },
+  disabledContinueButton: {
+    backgroundColor: COLORS.GRAY_CONTRAST,
+    width: "100%",
+    marginTop: 12,
+    alignItems: "center",
+  },
+  continueButtonText: {
+    color: COLORS.PLAIN_WHITE,
+    fontSize: 20,
+    paddingVertical: 4,
+  },
+  disabledContinueButtonText: {
+    color: COLORS.DARKER_GRAY_CONTRAST,
+    fontSize: 20,
+    paddingVertical: 4,
+  },
+});
 
-    const onContinueButtonPressed = async () => {
-        //const loginResult = await signUpNewUser();
-    }
+export const RegisterCard = ({
+  emailValue,
+  passwordValue,
+  repeatPasswordValue,
+  setEmailValue,
+  setPasswordValue,
+  setRepeatPasswordValue,
+  onConfirmed,
+}: RegisterCardProps) => {
+  const onRegisterConfirmed = useCallback(async () => {
+    await onConfirmed?.();
+  }, [onConfirmed]);
 
-    return (
-        <MotiView
-            style={loginScreenStyles.blurViewWrapper}
-            from={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}>
-            <BlurView intensity={90} style={loginScreenStyles.blurViewContainer}>
-                <CustomText style={loginScreenStyles.subheaderText}>With the email address</CustomText>
+  return (
+    <MotiView
+      style={registerCardStyles.blurViewWrapper}
+      from={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <BlurView intensity={90} style={registerCardStyles.blurViewContainer}>
+        <CustomText style={registerCardStyles.subheaderText}>
+          With the email address
+        </CustomText>
 
-                <CustomInput
-                    wrapperStyle={loginScreenStyles.inputWrapper}
-                    inputStyle={loginScreenStyles.input}
-                    placeholderText="Email address"
-                    onChangeText={(value) => setEmailAddressValue(value)}
-                    value={emailAddressValue} />
+        <CustomInput
+          wrapperStyle={registerCardStyles.inputWrapper}
+          inputStyle={registerCardStyles.input}
+          placeholderText="Email address"
+          onChangeText={setEmailValue}
+          value={emailValue}
+        />
 
-                <CustomInput
-                    wrapperStyle={loginScreenStyles.inputWrapper}
-                    inputStyle={loginScreenStyles.input}
-                    placeholderText="Password"
-                    onChangeText={(value) => setPasswordValue(value)}
-                    value={passwordValue} />
+        <CustomInput
+          wrapperStyle={registerCardStyles.inputWrapper}
+          inputStyle={registerCardStyles.input}
+          placeholderText="Password"
+          onChangeText={setPasswordValue}
+          value={passwordValue}
+        />
 
-                <CustomInput
-                    wrapperStyle={loginScreenStyles.inputWrapper}
-                    inputStyle={loginScreenStyles.input}
-                    placeholderText="Repeat Password"
-                    onChangeText={(value) => setRepeatPasswordValue(value)}
-                    value={repeatPasswordValue} />
+        <CustomInput
+          wrapperStyle={registerCardStyles.inputWrapper}
+          inputStyle={registerCardStyles.input}
+          placeholderText="Repeat Password"
+          onChangeText={setRepeatPasswordValue}
+          value={repeatPasswordValue}
+        />
 
-                {/* <CustomButton
-                    disabled={isEmailValid(inputValue) ? false : true}
-                    style={isEmailValid(inputValue) ? loginScreenStyles.continueButton : loginScreenStyles.disabledContinueButton}
-                    onPressed={onContinueButtonPressed}>
-                    <CustomText style={isEmailValid(inputValue) ? loginScreenStyles.continueButtonText : loginScreenStyles.disabledContinueButtonText}>Sign Up</CustomText>
-                </CustomButton> */}
-            </BlurView>
-        </MotiView>
-    )
-}
+        <CustomButton
+          disabled={!isEmailValid(emailValue)}
+          style={
+            isEmailValid(emailValue)
+              ? registerCardStyles.continueButton
+              : registerCardStyles.disabledContinueButton
+          }
+          onPressed={onRegisterConfirmed}
+        >
+          <CustomText
+            style={
+              isEmailValid(emailValue)
+                ? registerCardStyles.continueButtonText
+                : registerCardStyles.disabledContinueButtonText
+            }
+          >
+            Sign Up
+          </CustomText>
+        </CustomButton>
+      </BlurView>
+    </MotiView>
+  );
+};

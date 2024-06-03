@@ -12,6 +12,8 @@ import { MainNavigationContainer } from "./src/navigation/MainNavigationContaine
 import { LoginScreen } from "./src/screens/LoginScreen";
 import { FLAGS } from "./src/utils/constants";
 import { MMKVProvider } from "./src/context/mmkvContext";
+import { ToastProvider } from "./src/context/ToastContext";
+import { Toast } from "./src/components/Toast";
 
 const isInLoginMode = FLAGS.IS_USING_LOGIN_SCREEN;
 
@@ -37,7 +39,10 @@ export default function App() {
     onContainerReady();
     return (
       <SafeAreaProvider>
-        <LoginScreen />
+        <ToastProvider>
+          <LoginScreen />
+          <Toast />
+        </ToastProvider>
       </SafeAreaProvider>
     );
   }
@@ -46,7 +51,10 @@ export default function App() {
     <SafeAreaProvider>
       <MMKVProvider>
         <EatingGoalProvider>
-          <MainNavigationContainer onReady={onContainerReady} />
+          <ToastProvider>
+            <MainNavigationContainer onReady={onContainerReady} />
+            <Toast />
+          </ToastProvider>
         </EatingGoalProvider>
       </MMKVProvider>
     </SafeAreaProvider>

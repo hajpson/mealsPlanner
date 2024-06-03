@@ -6,7 +6,6 @@ import { LinearMacroBarProps } from "../types/props/LinearMacroBarProps";
 import { COLORS } from "../utils/constants";
 
 const linearMacroBarStyles = StyleSheet.create({
-  container: {},
   lowerTitleWrapper: {
     flexDirection: "row",
     alignSelf: "flex-end",
@@ -30,7 +29,7 @@ export const LinearMacroBar = ({
   const isOverLimit = progressValue > 1;
 
   return (
-    <View style={linearMacroBarStyles.container}>
+    <View>
       <View style={linearMacroBarStyles.upperTitleWrapper}>
         <CustomText style={linearMacroBarStyles.secondaryText}>
           {title}

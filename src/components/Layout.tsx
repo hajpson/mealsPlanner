@@ -1,9 +1,16 @@
 import { FC, PropsWithChildren } from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { LayoutProps } from "../types/props/LayoutProps";
-import { uniStyles } from "../utils/styles";
+import { COLORS } from "../utils/constants";
+
+const layoutStyles = StyleSheet.create({
+  mainWrapper: {
+    flex: 1,
+    backgroundColor: COLORS.PRIMARY,
+  },
+});
 
 export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
   children,
@@ -27,7 +34,7 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
           paddingLeft,
         },
         style,
-        uniStyles.mainWrapper,
+        layoutStyles.mainWrapper,
       ]}
     >
       {children}

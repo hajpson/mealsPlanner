@@ -1,5 +1,5 @@
 export const isEmailValid = (phrase: string) => {
   const emailPattern =
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
   return emailPattern.test(phrase);
 };

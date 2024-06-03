@@ -14,6 +14,7 @@ export const COLORS = {
   DARKER_GRAY_CONTRAST: "#0000001e",
   OVERLAY: "rgba(0, 0, 0, 0.2)",
   PLAIN_WHITE: "#ffffff",
+  PLAIN_BLACK: "#000000",
   ERROR: "#ff2525",
   MARBLE: "#f3f3f3ff",
 };

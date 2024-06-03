@@ -1,8 +1,28 @@
-import { FlatList, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 
 import { CustomText } from "./CustomText";
 import { ListItemProps } from "../types/props/ListItemProps";
-import { uniStyles } from "../utils/styles";
+import { COLORS } from "../utils/constants";
+
+const listStyles = StyleSheet.create({
+  listItemContainer: {
+    backgroundColor: COLORS.GRAY_CONTRAST,
+    padding: 24,
+    marginHorizontal: 12,
+    borderRadius: 24,
+  },
+  separator: {
+    height: 18,
+  },
+  listContainer: {
+    flex: 1,
+    width: "100%",
+    justifyContent: "flex-start",
+    alignItems: "stretch",
+    backgroundColor: COLORS.PLAIN_WHITE,
+    borderRadius: 24,
+  },
+});
 
 const items = [
   { id: "1", title: "asda" },
@@ -25,12 +45,12 @@ const items = [
 ];
 
 const ListItem = ({ title, style }: ListItemProps) => (
-  <View style={[uniStyles.listItemContainer, style]}>
+  <View style={[listStyles.listItemContainer, style]}>
     <CustomText>{title}</CustomText>
   </View>
 );
 
-const Separator = () => <View style={uniStyles.separator} />;
+const Separator = () => <View style={listStyles.separator} />;
 
 const ItemsList = () => {
   const setMarginTopIfFirstIndex = (index: number) => {
@@ -42,7 +62,7 @@ const ItemsList = () => {
   };
 
   return (
-    <View style={uniStyles.listContainer}>
+    <View style={listStyles.listContainer}>
       <FlatList
         ItemSeparatorComponent={Separator}
         renderItem={({ item, index }) => (

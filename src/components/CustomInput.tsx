@@ -1,8 +1,22 @@
-import { TextInput, View } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 
 import { CustomInputProps } from "../types/props/CustomInputProps";
 import { COLORS } from "../utils/constants";
-import { uniStyles } from "../utils/styles";
+
+const customInputStyles = StyleSheet.create({
+  customInputWrapper: {
+    width: "100%",
+    padding: 10,
+    backgroundColor: COLORS.PRIMARY,
+  },
+  customInput: {
+    color: COLORS.PLAIN_WHITE,
+    marginHorizontal: 12,
+    paddingVertical: 6,
+    fontFamily: "Lexend",
+    fontSize: 18,
+  },
+});
 
 export const CustomInput = ({
   wrapperStyle,
@@ -14,11 +28,11 @@ export const CustomInput = ({
   secured = false,
 }: CustomInputProps) => {
   return (
-    <View style={[uniStyles.customInputWrapper, wrapperStyle]}>
+    <View style={[customInputStyles.customInputWrapper, wrapperStyle]}>
       <TextInput
         secureTextEntry={secured}
         autoCorrect={false}
-        style={[uniStyles.customInput, inputStyle]}
+        style={[customInputStyles.customInput, inputStyle]}
         placeholder={placeholderText}
         value={value}
         onChangeText={onChangeText}
